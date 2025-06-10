@@ -1,0 +1,8 @@
+[ 2025-06-10 11:40:28,971 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 11:40:28,996 ] 61 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 11:40:29,013 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support. 
+[ 2025-06-10 11:40:29,013 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'") 
+[ 2025-06-10 11:40:29,013 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support. 
+[ 2025-06-10 11:40:29,045 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support. 
+[ 2025-06-10 11:40:29,071 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss. 

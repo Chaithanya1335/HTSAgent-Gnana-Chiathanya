@@ -1,0 +1,2 @@
+[ 2025-06-10 11:31:26,812 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 11:31:26,827 ] 61 root - INFO - Embedding model initialized successfully. 

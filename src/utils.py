@@ -1,6 +1,7 @@
 from src.exception import CustomException
 from src.logger import logging
 from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
+from langchain_google_genai.chat_models import ChatGoogleGenerativeAI
 
 import pandas as pd
 import os
@@ -61,5 +62,12 @@ def get_embedding_model(model_name:str,api_key:str):
             return embedding_model
         except Exception as e:
             raise CustomException(e, sys)
+
+def get_llm(model_name,api_key):
+     try:
+        llm = ChatGoogleGenerativeAI(model = model_name,api_key=api_key)
+        return llm
+     except Exception as e:
+         raise CustomException(e,sys)
 
 
