@@ -1,5 +1,6 @@
 from langchain.agents import initialize_agent
 from langchain.agents.agent_types import AgentType
+from langchain.memory import ConversationBufferMemory
 from langchain.tools import Tool
 from src.utils import get_llm
 from src.exception import CustomException
@@ -18,12 +19,14 @@ class Agent:
     def __init__(self):
         self.tools = [rag_query_tool, calculate_tariff_duty]
         self.llm = get_llm(model_name = 'gemini-1.5-flash',api_key = api_key )
+        self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
     def initialize_agent(self):
         agent = initialize_agent(
             tools=self.tools,
             llm=self.llm,
-            agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,  # or AGENT_TYPE.ZERO_SHOT_REACT_DESCRIPTION
+            agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
+            memory=self.memory,  
             verbose=True
         )
 
