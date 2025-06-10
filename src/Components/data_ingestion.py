@@ -23,11 +23,27 @@ class DataIngestion:
 
     def get_csv_data(self,folder_path)->Tuple[pd.DataFrame,str]:
         """
-        This Function takes folder path of multiple csv's and gives combined csv at out_path
+        Reads a PDF file from the given path and returns a list of LangChain Document objects.
 
-        ARGS : Folder_path:str where all csv's contain
+        This method utilizes `PyPDFLoader` to parse the content of a PDF file,
+        converting each page or section into a LangChain Document. It's an
+        essential step for ingesting unstructured PDF data into a format
+        suitable for downstream NLP tasks, such as RAG (Retrieval-Augmented Generation).
 
-        Returns : combined csv,path of combined csv
+        Args:
+            pdf_path (str): The absolute or relative path to the PDF file
+                            that needs to be read.
+
+        Returns:
+            List[Document]: A list of parsed LangChain Document objects, where
+                            each document typically represents a page or a
+                            logical section of the PDF content.
+
+        Raises:
+            CustomException: If an error occurs during the PDF reading or parsing
+                             process (e.g., file not found, corrupted PDF,
+                             or issues with the `PyPDFLoader`). The original
+                             exception details are captured and re-raised.
         """
         logging.info("Data Ingestion Started")
 
@@ -43,6 +59,18 @@ class DataIngestion:
         
     
     def read_pdf(self,pdf_path:str)->list[Document]:
+        """
+        Reads a PDF file from the given path and returns a list of LangChain Document objects.
+
+        Args:
+            pdf_path (str): Path to the PDF file.
+
+        Returns:
+            list[Document]: A list of parsed documents from the PDF.
+
+        Raises:
+            CustomException: If reading or parsing the PDF fails.
+        """
 
         logging.info("Reading pdf file ")
 
@@ -56,22 +84,5 @@ class DataIngestion:
         
 
 
-if __name__=='__main__':
-    data_ingestion = DataIngestion()
-    
-    folder_path = 'Data/section1_chapters'
-    df,csv_path = data_ingestion.get_csv_data(folder_path=folder_path)
 
-    pdf_path  = Path("Data\General Notes.pdf")
-
-    docs = data_ingestion.read_pdf(pdf_path=pdf_path)
-
-    print(len(docs))
-    print(type(docs))
-
-    docs = DataTransformation().get_chunks(chunk_size=1000,chunk_overlap=100,docs=docs)
-
-    print(len(docs))
-    persist_path = "artifacts/vectorstore"
-    vs = vectordb(persist_path=persist_path,docs=docs)
     

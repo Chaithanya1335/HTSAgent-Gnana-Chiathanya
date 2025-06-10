@@ -12,6 +12,23 @@ class DataPreprocessing:
         self.csv_path = csv_path
     
     def preprocess_data(self)->str:
+        """
+        Reads the HTS CSV file, cleans and preprocesses the data, and saves it to a new CSV file.
+
+        Processing steps:
+        - Strips whitespace from 'HTS Number' and 'Description' columns.
+        - Fills missing values in duty rate columns ('General Rate of Duty', 
+        'Special Rate of Duty', 'Column 2 Rate of Duty') with the string 'Free'.
+        - Extracts the unit from 'Unit of Quantity' field if it contains values like '["kg"]' → 'kg'.
+        - Filters and retains only relevant columns for further processing.
+        - Saves the cleaned data to `self.save_path`.
+
+        Returns:
+            str: The file path where the cleaned CSV is saved.
+
+        Raises:
+            CustomException: If any error occurs during preprocessing.
+        """
         try:
             df = pd.read_csv(self.csv_path)
 
@@ -43,6 +60,3 @@ class DataPreprocessing:
             raise CustomException(e,sys)
     
 
-
-if __name__=='__main__':
-   saved_path =  DataPreprocessing().preprocess_data()

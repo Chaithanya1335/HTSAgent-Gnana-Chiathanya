@@ -21,15 +21,28 @@ class Ragpipeline:
         Constructs and returns a Retrieval-Augmented Generation (RAG) chain using FAISS for retrieval
         and a language model for response generation.
 
+        This method orchestrates the creation of a RAG pipeline by:
+        1. Defining a prompt template to guide the language model.
+        2. Loading a FAISS vector store as a retriever for contextual information.
+        3. Initializing the language model (self.llm) and a string output parser.
+        4. Composing these components into a LangChain RunnableSequence.
+
+        The resulting `rag_chain` takes a 'question' as input, retrieves relevant
+        'context' from the FAISS store, combines them with the prompt, passes
+        to the LLM for generation, and finally parses the output into a string.
+
         Returns:
             rag_chain (RunnableSequence): A composed chain that:
-                - Retrieves relevant context using a FAISS vector store
-                - Formats the input using a prompt template
-                - Generates an answer using the initialized language model (self.llm)
-                - Parses and returns the final string output
+                - Retrieves relevant context using a FAISS vector store.
+                - Formats the input using a prompt template.
+                - Generates an answer using the initialized language model (self.llm).
+                - Parses and returns the final string output.
 
         Raises:
-            CustomException: If there is an error during any part of the pipeline setup.
+            CustomException: If there is an error during any part of the pipeline setup,
+                             including loading the FAISS index, initializing components,
+                             or constructing the chain. The original exception is
+                             wrapped and re-raised.
         """
         try:
             logging.info("Initializing RAG pipeline.")

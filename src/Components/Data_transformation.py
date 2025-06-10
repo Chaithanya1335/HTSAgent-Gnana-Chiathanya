@@ -13,18 +13,33 @@ class DataTransformation:
     def get_chunks(self,chunk_size,chunk_overlap,docs)->List[Document]:
 
         """
-            Splits a list of LangChain Document objects into smaller chunks using recursive character splitting.
+        Splits a list of LangChain Document objects into smaller chunks
+        using recursive character splitting.
 
-            Args:
-                chunk_size (int): Maximum size of each chunk in characters.
-                chunk_overlap (int): Number of overlapping characters between consecutive chunks.
-                docs (List[Document]): List of LangChain Document objects to be chunked.
+        This function is crucial for preparing large documents for
+        processing by language models or for populating vector stores,
+        as it breaks down content into manageable, contextually relevant pieces.
+        It uses `RecursiveCharacterTextSplitter` to intelligently split text
+        based on a hierarchy of separators, aiming to keep related content together.
 
-            Returns:
-                List[Document]: A list of chunked Document objects.
+        Args:
+            chunk_size (int): The maximum size of each chunk in characters.
+                            This determines the approximate length of the output chunks.
+            chunk_overlap (int): The number of overlapping characters between consecutive chunks.
+                                Overlap helps to preserve context across chunk boundaries,
+                                reducing the chance of losing information at splits.
+            docs (List[Document]): A list of LangChain Document objects to be chunked.
+                                Each document in this list will be processed.
 
-            
-            """
+        Returns:
+            List[Document]: A new list containing the smaller, chunked Document objects.
+                            Each chunk will also retain metadata from its original parent document.
+
+        Raises:
+            CustomException: If an error occurs during the document splitting process,
+                            such as issues with text splitter configuration or
+                            unexpected input document formats.
+        """
        
         logging.info("Data Transformation Started")
 

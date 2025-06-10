@@ -6,7 +6,13 @@ from src.logger import logging
 
 def get_duck_tool():
     """
-    This function is used for websearch
+    Initializes and returns a DuckDuckGo web search tool.
+
+    This function creates an instance of DuckDuckGoSearchRun, which allows
+    an agent to perform web searches using DuckDuckGo.
+
+    Returns:
+        DuckDuckGoSearchRun: An instance of the DuckDuckGo web search tool.
     """
     duct_tool = DuckDuckGoSearchRun()
     return duct_tool

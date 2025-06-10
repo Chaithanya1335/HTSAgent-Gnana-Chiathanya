@@ -8,10 +8,38 @@ import re
 @tool
 def calculate_tariff_duty(input_string: str) -> str:
     """
-    Calculate the landed cost and duties for a given product using HTS tariff data.
+    Calculates the landed cost and import duties for a product based on HTS tariff data.
 
-    Input format:
+    This function parses an input string containing product details, including
+    HTS code, cost, freight, insurance, weight, and quantity. It then uses
+    the `DutyCalculator` to compute the applicable duties and returns the
+    result as a formatted string (typically a DataFrame converted to string).
+
+    The input string must adhere to the following format:
     "HTS:0101.30.00.00; cost:10000; freight:500; insurance:100; weight:500; qty:5"
+
+    Args:
+        input_string (str): A semicolon-separated string containing key-value
+                            pairs of product details. Expected keys are:
+                            "HTS", "cost", "freight", "insurance", "weight", "qty".
+
+    Returns:
+        str: A string representation of the calculation result, typically a
+             DataFrame converted to a string, showing landed cost and duties.
+
+    Raises:
+        CustomException: If parsing of the input string fails, or if there's
+                         an error during the duty calculation process within
+                         the `DutyCalculator`. The original exception details
+                         are captured and re-raised within `CustomException`.
+
+    Example:
+        >>> input_data = "HTS:0101.30.00.00; cost:10000; freight:500; insurance:100; weight:500; qty:5"
+        >>> result = calculate_tariff_duty(input_data)
+        >>> print(result)
+        # Expected output will be a string representation of the DataFrame, e.g.:
+        #   HTS Code  Product Cost  Freight  Insurance  ... Total Landed Cost
+        # 0  0101.30.00.00         10000      500        100  ...              ...
     """
     try:
         # Parse key-value pairs from input string

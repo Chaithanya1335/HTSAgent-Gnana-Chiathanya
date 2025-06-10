@@ -10,7 +10,7 @@ from src.tools.Duty_Calculator_tool import calculate_tariff_duty
 from src.tools.DuckDuckgo import get_duck_tool
 from src.tools.wiki_tool import get_wiki_tool
 from dotenv import load_dotenv
-import os
+import os,sys
 
 load_dotenv()
 
@@ -26,21 +26,30 @@ class Agent:
         self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
     def initialize_agent(self):
-        agent = initialize_agent(
-            tools=self.tools,
-            llm=self.llm,
-            agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
-            memory=self.memory,  
-            verbose=True,
-        )
+            """
+            Initializes a LangChain Structured Chat Agent with the provided tools, 
+            LLM, and memory configuration.
 
-        return agent
+            Returns:
+                agent (AgentExecutor): Initialized LangChain agent ready for interaction.
+
+            Raises:
+                Exception: If agent initialization fails.
+            """
+            try:
+                agent = initialize_agent(
+                    tools=self.tools,
+                    llm=self.llm,
+                    agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+                    memory=self.memory,
+                    verbose=True,
+                )
+                logging.info("Agent initialized successfully.")
+                return agent
+
+            except Exception as e:
+                raise CustomException(e,sys)
 
 
 
-if __name__=="__main__":
-    agent = Agent().initialize_agent()
-    
 
-    response = agent.run("What is United States-Israel Free Trade Agreement?")
-    print(response)

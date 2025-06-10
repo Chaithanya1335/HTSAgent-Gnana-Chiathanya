@@ -8,6 +8,19 @@ class DutyCalculator:
         self.csv_path = r"D:\Personal projects\HTSAgent-Gnana Chiathanya\artifacts\cleaned.csv"
 
     def parse_duty_advanced(self,duty_str, cif_value, unit_weight=None, quantity=None):
+        """
+        Parses a duty rate string and calculates the corresponding duty based on the given CIF value,
+        unit weight, or quantity. Handles different formats including percentages, ¢/kg, and $/unit.
+
+        Args:
+            duty_str (str): Duty rate string (e.g., "5%", "2.3 ¢/kg", "$3/unit", "Free").
+            cif_value (float): Cost, Insurance, and Freight value used for % based calculations.
+            unit_weight (float, optional): Weight in kilograms used for ¢/kg based calculations.
+            quantity (int, optional): Quantity used for $/unit based calculations.
+
+        Returns:
+            float: Calculated duty amount in USD. Returns 0.0 if duty is "Free" or invalid format.
+        """
         if pd.isna(duty_str) or duty_str.strip() == "":
             return 0.0
 
@@ -35,7 +48,28 @@ class DutyCalculator:
 
         return 0.0
 
-    def calculate_duty(self,hts_code:str, product_cost:float, freight:float, insurance:float, unit_weight:float, quantity:int):
+    def calculate_duty(self,hts_code:str, product_cost:float, freight:float, insurance:float, unit_weight:float, quantity:int)->pd.DataFrame:
+        """
+        Calculates the duties and total landed cost for a given HTS code based on CIF value.
+
+        Args:
+            hts_code (str): The Harmonized Tariff Schedule code to look up.
+            product_cost (float): The product's base cost in USD.
+            freight (float): The freight cost in USD.
+            insurance (float): The insurance cost in USD.
+            unit_weight (float): Total weight of the product (in kg) for ¢/kg calculations.
+            quantity (int): Number of units for $/unit duty calculations.
+
+        Returns:
+            pd.DataFrame: A DataFrame with detailed breakdown including:
+                - HTS Code
+                - Description
+                - CIF Value
+                - General Duty, Special Duty, Column 2 Duty
+                - Total Landed Cost under each duty type
+
+            str: If the HTS code is not found, returns an error message.
+        """
         df = pd.read_csv(self.csv_path)
         cif_value = product_cost + freight + insurance
 
