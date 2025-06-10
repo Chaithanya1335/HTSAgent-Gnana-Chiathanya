@@ -1,0 +1,12 @@
+[ 2025-06-10 09:48:52,821 ] 29 root - INFO - Data Ingestion Started 
+[ 2025-06-10 09:48:52,821 ] 17 root - INFO - Found 5 CSV files to combine. 
+[ 2025-06-10 09:48:52,821 ] 22 root - INFO - Reading file: htsdata (1).csv 
+[ 2025-06-10 09:48:52,837 ] 22 root - INFO - Reading file: htsdata (2).csv 
+[ 2025-06-10 09:48:52,837 ] 22 root - INFO - Reading file: htsdata (3).csv 
+[ 2025-06-10 09:48:52,837 ] 22 root - INFO - Reading file: htsdata (4).csv 
+[ 2025-06-10 09:48:52,837 ] 22 root - INFO - Reading file: htsdata.csv 
+[ 2025-06-10 09:48:52,837 ] 31 root - INFO - Successfully combined and saved to artifacts\final.csv 
+[ 2025-06-10 09:48:52,837 ] 34 root - INFO - all csv's Combined 
+[ 2025-06-10 09:48:52,837 ] 44 root - INFO - Reading pdf file  
+[ 2025-06-10 09:49:06,905 ] 48 root - INFO - pdf file read Successfully 
+[ 2025-06-10 09:49:06,905 ] 49 root - INFO - Data Ingestion Completed 

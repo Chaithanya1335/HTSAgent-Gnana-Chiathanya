@@ -1,0 +1,9 @@
+faiss-cpu
+streamlit
+langchain
+langchain_community
+pypdf
+python-dotenv
+pandas
+langchain_google_genai
+#-e .

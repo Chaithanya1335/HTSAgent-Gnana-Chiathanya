@@ -1,0 +1,18 @@
+[ 2025-06-10 10:55:41,225 ] 32 root - INFO - Data Ingestion Started 
+[ 2025-06-10 10:55:41,231 ] 19 root - INFO - Found 5 CSV files to combine. 
+[ 2025-06-10 10:55:41,231 ] 24 root - INFO - Reading file: htsdata (1).csv 
+[ 2025-06-10 10:55:41,234 ] 24 root - INFO - Reading file: htsdata (2).csv 
+[ 2025-06-10 10:55:41,235 ] 24 root - INFO - Reading file: htsdata (3).csv 
+[ 2025-06-10 10:55:41,237 ] 24 root - INFO - Reading file: htsdata (4).csv 
+[ 2025-06-10 10:55:41,239 ] 24 root - INFO - Reading file: htsdata.csv 
+[ 2025-06-10 10:55:41,244 ] 33 root - INFO - Successfully combined and saved to artifacts\final.csv 
+[ 2025-06-10 10:55:41,244 ] 37 root - INFO - all csv's Combined 
+[ 2025-06-10 10:55:41,244 ] 47 root - INFO - Reading pdf file  
+[ 2025-06-10 10:55:54,719 ] 51 root - INFO - pdf file read Successfully 
+[ 2025-06-10 10:55:54,719 ] 52 root - INFO - Data Ingestion Completed 
+[ 2025-06-10 10:55:54,722 ] 29 root - INFO - Data Transformation Started 
+[ 2025-06-10 10:55:54,821 ] 36 root - INFO - Chunking of data completed and no of chunks created is 3354 
+[ 2025-06-10 10:55:54,823 ] 30 root - INFO - Initializing embedding model for vector DB. 
+[ 2025-06-10 10:55:54,823 ] 58 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 10:55:54,835 ] 60 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 10:55:54,835 ] 36 root - INFO - Creating Chroma vector store from documents. 

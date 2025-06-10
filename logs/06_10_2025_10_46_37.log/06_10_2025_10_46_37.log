@@ -1,0 +1,16 @@
+[ 2025-06-10 10:46:39,195 ] 32 root - INFO - Data Ingestion Started 
+[ 2025-06-10 10:46:39,195 ] 19 root - INFO - Found 5 CSV files to combine. 
+[ 2025-06-10 10:46:39,195 ] 24 root - INFO - Reading file: htsdata (1).csv 
+[ 2025-06-10 10:46:39,195 ] 24 root - INFO - Reading file: htsdata (2).csv 
+[ 2025-06-10 10:46:39,206 ] 24 root - INFO - Reading file: htsdata (3).csv 
+[ 2025-06-10 10:46:39,208 ] 24 root - INFO - Reading file: htsdata (4).csv 
+[ 2025-06-10 10:46:39,211 ] 24 root - INFO - Reading file: htsdata.csv 
+[ 2025-06-10 10:46:39,215 ] 33 root - INFO - Successfully combined and saved to artifacts\final.csv 
+[ 2025-06-10 10:46:39,215 ] 37 root - INFO - all csv's Combined 
+[ 2025-06-10 10:46:39,215 ] 47 root - INFO - Reading pdf file  
+[ 2025-06-10 10:46:53,071 ] 51 root - INFO - pdf file read Successfully 
+[ 2025-06-10 10:46:53,071 ] 52 root - INFO - Data Ingestion Completed 
+[ 2025-06-10 10:46:53,071 ] 29 root - INFO - Data Transformation Started 
+[ 2025-06-10 10:46:53,176 ] 36 root - INFO - Chunking of data completed and no of chunks created is 3354 
+[ 2025-06-10 10:46:53,177 ] 30 root - INFO - Initializing embedding model for vector DB. 
+[ 2025-06-10 10:46:53,177 ] 58 root - INFO - Initializing embedding model: models/embedding-001 
