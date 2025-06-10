@@ -1,0 +1,13 @@
+[ 2025-06-10 15:07:38,970 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 15:07:39,080 ] 61 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 15:07:39,090 ] 35 root - INFO - Initializing RAG pipeline. 
+[ 2025-06-10 15:07:39,092 ] 42 root - INFO - Prompt template created. 
+[ 2025-06-10 15:07:39,099 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support. 
+[ 2025-06-10 15:07:39,103 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'") 
+[ 2025-06-10 15:07:39,103 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support. 
+[ 2025-06-10 15:07:39,163 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support. 
+[ 2025-06-10 15:07:39,181 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss. 
+[ 2025-06-10 15:07:39,250 ] 50 root - INFO - FAISS retriever loaded successfully. 
+[ 2025-06-10 15:07:39,250 ] 55 root - INFO - LLM and output parser initialized. 
+[ 2025-06-10 15:07:39,250 ] 64 root - INFO - RAG pipeline successfully constructed. 

@@ -3,6 +3,7 @@ from src.Components.Duty_Calculator import DutyCalculator
 from src.exception import CustomException
 from src.logger import logging
 import sys
+import re
 
 @tool
 def calculate_tariff_duty(input_string: str) -> str:
@@ -21,7 +22,7 @@ def calculate_tariff_duty(input_string: str) -> str:
         freight = float(parts["freight"])
         insurance = float(parts["insurance"])
         weight = float(parts["weight"])
-        qty = int(parts["qty"])
+        qty = int(re.sub(r"[^\d]", "", parts["qty"]))
 
         # Use DutyCalculator class
         calculator = DutyCalculator()

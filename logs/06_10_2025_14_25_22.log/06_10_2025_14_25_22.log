@@ -1,0 +1,7 @@
+[ 2025-06-10 14:25:22,513 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 14:25:22,549 ] 61 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 14:25:22,549 ] 35 root - INFO - Initializing RAG pipeline. 
+[ 2025-06-10 14:25:22,549 ] 42 root - INFO - Prompt template created. 
+[ 2025-06-10 14:25:22,568 ] 50 root - INFO - FAISS retriever loaded successfully. 
+[ 2025-06-10 14:25:22,569 ] 55 root - INFO - LLM and output parser initialized. 
+[ 2025-06-10 14:25:22,569 ] 64 root - INFO - RAG pipeline successfully constructed. 

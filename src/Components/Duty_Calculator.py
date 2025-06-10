@@ -35,7 +35,7 @@ class DutyCalculator:
 
         return 0.0
 
-    def calculate_duty(self,hts_code, product_cost, freight, insurance, unit_weight, quantity):
+    def calculate_duty(self,hts_code:str, product_cost:float, freight:float, insurance:float, unit_weight:float, quantity:int):
         df = pd.read_csv(self.csv_path)
         cif_value = product_cost + freight + insurance
 

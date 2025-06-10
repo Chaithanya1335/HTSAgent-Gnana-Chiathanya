@@ -6,4 +6,6 @@ pypdf
 python-dotenv
 pandas
 langchain_google_genai
+duckduckgo-search
+wikipedia
 #-e .
