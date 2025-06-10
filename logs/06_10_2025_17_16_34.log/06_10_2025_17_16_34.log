@@ -1,0 +1,18 @@
+[ 2025-06-10 17:16:35,547 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 17:16:35,622 ] 61 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 17:16:35,625 ] 48 root - INFO - Initializing RAG pipeline. 
+[ 2025-06-10 17:16:35,625 ] 55 root - INFO - Prompt template created. 
+[ 2025-06-10 17:16:35,629 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support. 
+[ 2025-06-10 17:16:35,629 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'") 
+[ 2025-06-10 17:16:35,629 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support. 
+[ 2025-06-10 17:16:35,644 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support. 
+[ 2025-06-10 17:16:35,650 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss. 
+[ 2025-06-10 17:16:35,686 ] 63 root - INFO - FAISS retriever loaded successfully. 
+[ 2025-06-10 17:16:35,686 ] 68 root - INFO - LLM and output parser initialized. 
+[ 2025-06-10 17:16:35,686 ] 77 root - INFO - RAG pipeline successfully constructed. 
+[ 2025-06-10 17:16:36,455 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:16:52,028 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:16:52,257 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:16:56,006 ] 464 primp - INFO - response: https://lite.duckduckgo.com/lite/ 200 
+[ 2025-06-10 17:16:57,706 ] 47 root - INFO - Agent initialized successfully. 

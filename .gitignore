@@ -1,5 +1,6 @@
 htsagent
 HTS_AGENT.egg-info
 .env
-
+Data
+artifacts
 test.ipynb

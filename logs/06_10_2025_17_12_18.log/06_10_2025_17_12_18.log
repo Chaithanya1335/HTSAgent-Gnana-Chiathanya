@@ -1,0 +1,25 @@
+[ 2025-06-10 17:12:21,064 ] 48 root - INFO - Data Ingestion Started 
+[ 2025-06-10 17:12:21,064 ] 20 root - INFO - Found 5 CSV files to combine. 
+[ 2025-06-10 17:12:21,064 ] 25 root - INFO - Reading file: htsdata (1).csv 
+[ 2025-06-10 17:12:21,096 ] 25 root - INFO - Reading file: htsdata (2).csv 
+[ 2025-06-10 17:12:21,121 ] 25 root - INFO - Reading file: htsdata (3).csv 
+[ 2025-06-10 17:12:21,133 ] 25 root - INFO - Reading file: htsdata (4).csv 
+[ 2025-06-10 17:12:21,164 ] 25 root - INFO - Reading file: htsdata.csv 
+[ 2025-06-10 17:12:21,192 ] 34 root - INFO - Successfully combined and saved to artifacts\final.csv 
+[ 2025-06-10 17:12:21,192 ] 53 root - INFO - all csv's Combined 
+[ 2025-06-10 17:12:21,192 ] 75 root - INFO - Reading pdf file  
+[ 2025-06-10 17:12:34,670 ] 79 root - INFO - pdf file read Successfully 
+[ 2025-06-10 17:12:34,670 ] 80 root - INFO - Data Ingestion Completed 
+[ 2025-06-10 17:12:34,670 ] 44 root - INFO - Data Transformation Started 
+[ 2025-06-10 17:12:34,767 ] 51 root - INFO - Chunking of data completed and no of chunks created is 3354 
+[ 2025-06-10 17:12:34,783 ] 30 root - INFO - Initializing embedding model for vector DB. 
+[ 2025-06-10 17:12:34,798 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 17:12:34,798 ] 61 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 17:12:34,798 ] 36 root - INFO - Creating Chroma vector store from documents. 
+[ 2025-06-10 17:15:02,112 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support. 
+[ 2025-06-10 17:15:02,112 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'") 
+[ 2025-06-10 17:15:02,112 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support. 
+[ 2025-06-10 17:15:02,134 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support. 
+[ 2025-06-10 17:15:02,146 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss. 
+[ 2025-06-10 17:15:02,350 ] 43 root - INFO - Vector store successfully saved at: artifacts/vectorstore 
