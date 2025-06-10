@@ -1,0 +1,35 @@
+[ 2025-06-10 17:22:09,734 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 17:22:09,793 ] 61 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 17:22:09,798 ] 48 root - INFO - Initializing RAG pipeline. 
+[ 2025-06-10 17:22:09,798 ] 55 root - INFO - Prompt template created. 
+[ 2025-06-10 17:22:09,798 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support. 
+[ 2025-06-10 17:22:09,798 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'") 
+[ 2025-06-10 17:22:09,798 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support. 
+[ 2025-06-10 17:22:09,813 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support. 
+[ 2025-06-10 17:22:09,823 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss. 
+[ 2025-06-10 17:22:09,833 ] 63 root - INFO - FAISS retriever loaded successfully. 
+[ 2025-06-10 17:22:09,833 ] 68 root - INFO - LLM and output parser initialized. 
+[ 2025-06-10 17:22:09,833 ] 77 root - INFO - RAG pipeline successfully constructed. 
+[ 2025-06-10 17:22:10,241 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:22:16,543 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:22:16,769 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:22:18,953 ] 464 primp - INFO - response: https://lite.duckduckgo.com/lite/ 200 
+[ 2025-06-10 17:22:20,623 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:22:46,723 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:22:48,254 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:22:54,619 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:23:35,555 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:23:35,773 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:23:41,572 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:23:44,713 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:23:50,389 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:24:31,692 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:24:31,909 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:24:35,974 ] 464 primp - INFO - response: https://html.duckduckgo.com/html 200 
+[ 2025-06-10 17:24:37,425 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:24:40,038 ] 47 root - INFO - Agent initialized successfully. 
+[ 2025-06-10 17:24:44,557 ] 464 primp - INFO - response: https://html.duckduckgo.com/html 200 
+[ 2025-06-10 17:24:54,440 ] 464 primp - INFO - response: https://lite.duckduckgo.com/lite/ 200 
+[ 2025-06-10 17:24:57,060 ] 464 primp - INFO - response: https://lite.duckduckgo.com/lite/ 200 
+[ 2025-06-10 17:24:58,724 ] 47 root - INFO - Agent initialized successfully. 
