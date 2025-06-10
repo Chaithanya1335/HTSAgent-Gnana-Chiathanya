@@ -1,3 +1,0 @@
-[ 2025-06-10 11:29:36,605 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
-[ 2025-06-10 11:29:36,635 ] 61 root - INFO - Embedding model initialized successfully. 
-[ 2025-06-10 11:29:36,635 ] 1104 langchain_google_genai.chat_models - WARNING - Unexpected argument 'model_name' provided to ChatGoogleGenerativeAI. Did you mean: 'model'? 

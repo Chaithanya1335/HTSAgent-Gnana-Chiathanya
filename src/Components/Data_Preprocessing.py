@@ -7,9 +7,9 @@ from pathlib import Path
 
 
 class DataPreprocessing:
-    def __init__(self):
+    def __init__(self,csv_path:str):
         self.save_path = os.path.join("artifacts",'cleaned.csv')
-        self.csv_path = r"D:\Personal projects\HTSAgent-Gnana Chiathanya\artifacts\final.csv"
+        self.csv_path = csv_path
     
     def preprocess_data(self)->str:
         try:
