@@ -37,7 +37,7 @@ class Ragpipeline:
             # Step 1: Create prompt template
             prompt = PromptTemplate.from_template(
                 template="you are question answering bot need to answer the question:\n {question} based availble context:\n {context}",
-                input_variables=['question', 'context']
+                input_variable=['question', 'context']
             )
             logging.info("Prompt template created.")
 

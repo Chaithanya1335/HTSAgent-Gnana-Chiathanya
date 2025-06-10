@@ -1,0 +1,3 @@
+[ 2025-06-10 13:00:08,495 ] 59 root - INFO - Initializing embedding model: models/embedding-001 
+[ 2025-06-10 13:00:08,506 ] 61 root - INFO - Embedding model initialized successfully. 
+[ 2025-06-10 13:00:08,506 ] 35 root - INFO - Initializing RAG pipeline. 
