@@ -2,12 +2,10 @@ import pandas as pd
 import re
 from src.exception import CustomException
 from src.logger import logging
+from langchain.agents.tools import tool
+import sys
 
-class DutyCalculator:
-    def __init__(self):
-        self.csv_path = r"D:\Personal projects\HTSAgent-Gnana Chiathanya\artifacts\cleaned.csv"
-
-    def parse_duty_advanced(self,duty_str, cif_value, unit_weight=None, quantity=None):
+def parse_duty_advanced(self,duty_str, cif_value, unit_weight=None, quantity=None):
         if pd.isna(duty_str) or duty_str.strip() == "":
             return 0.0
 
@@ -35,41 +33,49 @@ class DutyCalculator:
 
         return 0.0
 
-    def calculate_duty(self,hts_code, product_cost, freight, insurance, unit_weight, quantity):
-        df = pd.read_csv(self.csv_path)
-        cif_value = product_cost + freight + insurance
+@tool
+def calculate_tariff_duty(input_str: str) -> str:
+    """
+    Calculates duties for a product. 
+    Input format: 
+    'HTS:0101.30.00.00; cost:10000; freight:500; insurance:100; weight:500; qty:5'
+    """
+    try:
+        CSV_PATH = r"D:\Personal projects\HTSAgent-Gnana Chiathanya\artifacts\cleaned.csv"
+        parts = dict([x.strip().split(":") for x in input_str.split(";")])
+        hts = parts["HTS"]
+        cost = float(parts["cost"])
+        freight = float(parts["freight"])
+        insurance = float(parts["insurance"])
+        weight = float(parts["weight"])
+        qty = int(parts["qty"])
 
-        match = df[df["HTS Number"].astype(str).str.strip() == hts_code]
+        df = pd.read_csv(CSV_PATH)
+        cif = cost + freight + insurance
+
+        match = df[df["HTS Number"].astype(str).str.strip() == hts]
         if match.empty:
-            return f"No HTS record found for {hts_code}"
+            return f"No HTS record found for {hts}"
 
         row = match.iloc[0]
 
-        general = self.parse_duty_advanced(row["General Rate of Duty"], cif_value, unit_weight, quantity)
-        special = self.parse_duty_advanced(row["Special Rate of Duty"], cif_value, unit_weight, quantity)
-        col2 = self.parse_duty_advanced(row["Column 2 Rate of Duty"], cif_value, unit_weight, quantity)
+        general = parse_duty_advanced(row["General Rate of Duty"], cif, weight, qty)
+        special = parse_duty_advanced(row["Special Rate of Duty"], cif, weight, qty)
+        col2 = parse_duty_advanced(row["Column 2 Rate of Duty"], cif, weight, qty)
 
-        return pd.DataFrame([{
-            "HTS Code": hts_code,
-            "Description": row["Description"],
-            "CIF Value": cif_value,
-            "General Duty": general,
-            "Special Duty": special,
-            "Column 2 Duty": col2,
-            "Total Landed Cost (General)": cif_value + general,
-            "Total Landed Cost (Special)": cif_value + special,
-            "Total Landed Cost (Column 2)": cif_value + col2
-        }])
+        return (
+            f"HTS Code: {hts}\n"
+            f"Description: {row['Description']}\n"
+            f"CIF Value: {cif}\n"
+            f"General Duty: ${general:.2f}\n"
+            f"Special Duty: ${special:.2f}\n"
+            f"Column 2 Duty: ${col2:.2f}\n"
+            f"Landed Cost (General): ${cif + general:.2f}\n"
+            f"Landed Cost (Special): ${cif + special:.2f}\n"
+            f"Landed Cost (Column 2): ${cif + col2:.2f}"
+        )
+    except Exception as e:
+        raise CustomException(e,sys)
 
 
-if __name__ == "__main__":
-    duty_calculator = DutyCalculator()
-    result = duty_calculator.calculate_duty(
-        hts_code="0101.30.00.00",
-        product_cost=10000,
-        freight=500,
-        insurance=100,
-        unit_weight=500,
-        quantity=5
-    )
-    print(result)
+

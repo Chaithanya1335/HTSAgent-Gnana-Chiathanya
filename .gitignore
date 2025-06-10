@@ -2,3 +2,4 @@ htsagent
 HTS_AGENT.egg-info
 .env
 artifacts
+test.ipynb
